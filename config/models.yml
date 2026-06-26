@@ -1,0 +1,283 @@
+available_text_models:
+  - "deepseek-chat"
+  - "gemini-3-flash-preview"
+  - "kimi-k2"
+  - "command-r-plus"
+  - "command-a"
+  - "aria"
+  - "algochat"
+  - "gptfree-pro"
+  - "gptfree"
+  - "yqcloud-gpt4"
+  - "yqcloud"
+  - "command-a-03-2025"
+  - "command-r"
+  - "command-r7b"
+  - "kimi-search"
+  - "kimi-research"
+  - "deepseek-search"
+  - "chataibot-claude-haiku"
+  - "chataibot-claude-sonnet"
+  - "chataibot-deepseek-r1"
+  - "chataibot-gpt4-nano"
+
+info:
+  deepseek-chat:
+    type: chat_completion
+    vision: false
+    name: DeepSeek Chat
+    description: DeepSeek's flagship chat model — <b>fast</b>, smart, and extremely affordable for general tasks and coding.
+    price_per_1000_input_tokens: 0.00014
+    price_per_1000_output_tokens: 0.00028
+    scores:
+      Smart: 5
+      Fast: 5
+      Cheap: 5
+
+  deepseek-search:
+    type: chat_completion
+    vision: false
+    name: DeepSeek Search
+    description: DeepSeek with <b>real-time web search</b> — best for up-to-date information and research queries.
+    price_per_1000_input_tokens: 0.00014
+    price_per_1000_output_tokens: 0.00028
+    scores:
+      Smart: 5
+      Fast: 4
+      Cheap: 5
+
+  gemini-3-flash-preview:
+    type: chat_completion
+    vision: false
+    name: Gemini 3 Flash
+    description: Google's Gemini 3 Flash — <b>ultra-fast</b> responses with strong reasoning capability.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 5
+      Cheap: 5
+
+  kimi-k2:
+    type: chat_completion
+    vision: false
+    name: Kimi K2
+    description: Moonshot's <b>Kimi K2</b> — powerful MoE model excelling at coding and agentic tasks.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 4
+      Cheap: 5
+
+  kimi-search:
+    type: chat_completion
+    vision: false
+    name: Kimi Search
+    description: Kimi with <b>live web search</b> — great for finding current news and information.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 4
+      Cheap: 5
+
+  kimi-research:
+    type: chat_completion
+    vision: false
+    name: Kimi Research
+    description: Kimi in <b>deep research mode</b> — thorough multi-step analysis and long-form answers.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 3
+      Cheap: 5
+
+  command-r-plus:
+    type: chat_completion
+    vision: false
+    name: Command R+
+    description: Cohere's most capable model — excellent for <b>RAG, summarization</b>, and complex reasoning.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 3
+      Cheap: 5
+
+  command-a:
+    type: chat_completion
+    vision: false
+    name: Command A
+    description: Cohere Command A — <b>latest flagship</b> with strong instruction following and tool use.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 4
+      Cheap: 5
+
+  command-a-03-2025:
+    type: chat_completion
+    vision: false
+    name: Command A (Mar 2025)
+    description: Cohere Command A March 2025 release — stable production version.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 4
+      Cheap: 5
+
+  command-r:
+    type: chat_completion
+    vision: false
+    name: Command R
+    description: Cohere Command R — balanced model for everyday tasks and <b>retrieval-augmented</b> use cases.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 4
+      Cheap: 5
+
+  command-r7b:
+    type: chat_completion
+    vision: false
+    name: Command R 7B
+    description: Cohere's lightweight 7B model — <b>very fast</b> and efficient for simple queries.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 3
+      Fast: 5
+      Cheap: 5
+
+  aria:
+    type: chat_completion
+    vision: false
+    name: Aria (Opera)
+    description: Opera's Aria — general-purpose assistant optimized for <b>conversational tasks</b>.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 5
+      Cheap: 5
+
+  algochat:
+    type: chat_completion
+    vision: false
+    name: AlgoChat (Google)
+    description: Google-powered AlgoChat — smart general assistant with <b>strong reasoning</b>.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 5
+      Cheap: 5
+
+  gptfree-pro:
+    type: chat_completion
+    vision: false
+    name: GPTFree Pro
+    description: GPTFree Pro — enhanced free model with <b>better quality</b> responses.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 4
+      Cheap: 5
+
+  gptfree:
+    type: chat_completion
+    vision: false
+    name: GPTFree
+    description: GPTFree — lightweight free model for quick, <b>no-cost</b> responses.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 3
+      Fast: 5
+      Cheap: 5
+
+  yqcloud-gpt4:
+    type: chat_completion
+    vision: false
+    name: YQCloud GPT-4
+    description: YQCloud's GPT-4 — capable model for <b>complex tasks</b> via YQCloud gateway.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 4
+      Cheap: 5
+
+  yqcloud:
+    type: chat_completion
+    vision: false
+    name: YQCloud
+    description: YQCloud standard model — <b>fast and reliable</b> for everyday conversations.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 5
+      Cheap: 5
+
+  chataibot-claude-haiku:
+    type: chat_completion
+    vision: false
+    name: Claude Haiku
+    description: Anthropic Claude Haiku via ChatAIBot — <b>fastest Claude</b> model for quick tasks.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 4
+      Fast: 5
+      Cheap: 5
+
+  chataibot-claude-sonnet:
+    type: chat_completion
+    vision: false
+    name: Claude Sonnet
+    description: Anthropic Claude Sonnet via ChatAIBot — <b>balanced power</b> for complex reasoning and writing.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 4
+      Cheap: 5
+
+  chataibot-deepseek-r1:
+    type: chat_completion
+    vision: false
+    name: DeepSeek R1
+    description: DeepSeek R1 reasoning model via ChatAIBot — <b>step-by-step thinking</b> for hard problems.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 5
+      Fast: 3
+      Cheap: 5
+
+  chataibot-gpt4-nano:
+    type: chat_completion
+    vision: false
+    name: GPT-4 Nano
+    description: OpenAI GPT-4 Nano via ChatAIBot — <b>tiny but smart</b> for lightweight tasks.
+    price_per_1000_input_tokens: 0.0
+    price_per_1000_output_tokens: 0.0
+    scores:
+      Smart: 3
+      Fast: 5
+      Cheap: 5
+
+  gpt-image-1:
+    type: image
+    price_per_1_image: 0.042
+
+  whisper:
+    type: audio
+    price_per_1_min: 0.006
