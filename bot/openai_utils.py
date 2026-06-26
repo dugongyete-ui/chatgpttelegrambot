@@ -59,7 +59,10 @@ def _md_to_html(text: str) -> str:
         elif kind == 'code':
             out.append(f'<code>{_html.escape(content)}</code>')
         else:
-            p = _html.escape(content)
+            p = content
+
+            # Escape bare & that are NOT already part of an HTML entity
+            p = re.sub(r'&(?!(?:[a-zA-Z]+|#\d+|#x[0-9a-fA-F]+);)', '&amp;', p)
 
             # Strip markdown headers (# Title) — before anything else
             p = re.sub(r'^#{1,6}\s+', '', p, flags=re.MULTILINE)
@@ -85,7 +88,7 @@ def _md_to_html(text: str) -> str:
             # Strip horizontal rules
             p = re.sub(r'^[-_*]{3,}\s*$', '', p, flags=re.MULTILINE)
 
-            # Strip any remaining lone asterisks / backticks (formatting artifacts)
+            # Strip any remaining lone asterisks (formatting artifacts)
             p = re.sub(r'(?<!\w)\*+(?!\w)', '', p)
 
             # Curly / smart quotes → straight quotes for clean display
