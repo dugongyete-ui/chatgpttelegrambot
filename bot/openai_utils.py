@@ -59,22 +59,39 @@ def _md_to_html(text: str) -> str:
         elif kind == 'code':
             out.append(f'<code>{_html.escape(content)}</code>')
         else:
-            # Escape HTML entities in plain text sections
             p = _html.escape(content)
+
+            # Strip markdown headers (# Title) — before anything else
+            p = re.sub(r'^#{1,6}\s+', '', p, flags=re.MULTILINE)
+
+            # Bold italic ***text*** or ___text___
+            p = re.sub(r'\*{3}(.+?)\*{3}', r'<b><i>\1</i></b>', p, flags=re.DOTALL)
+            p = re.sub(r'_{3}(.+?)_{3}', r'<b><i>\1</i></b>', p, flags=re.DOTALL)
+
             # Bold **text** or __text__
-            p = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', p, flags=re.DOTALL)
-            p = re.sub(r'__(.+?)__', r'<b>\1</b>', p, flags=re.DOTALL)
-            # Italic *text* or _text_ (must not match ** already converted)
-            p = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<i>\1</i>', p, flags=re.DOTALL)
+            p = re.sub(r'\*{2}(.+?)\*{2}', r'<b>\1</b>', p, flags=re.DOTALL)
+            p = re.sub(r'_{2}(.+?)_{2}', r'<b>\1</b>', p, flags=re.DOTALL)
+
+            # Italic *text* or _text_
+            p = re.sub(r'\*([^\s*][^*]*?[^\s*])\*', r'<i>\1</i>', p, flags=re.DOTALL)
             p = re.sub(r'(?<![_\w])_([^_\n]+?)_(?![_\w])', r'<i>\1</i>', p)
+
             # Strikethrough ~~text~~
             p = re.sub(r'~~(.+?)~~', r'<s>\1</s>', p, flags=re.DOTALL)
-            # Strip markdown headers (# Title)
-            p = re.sub(r'^#{1,6}\s+', '', p, flags=re.MULTILINE)
-            # Strip remaining lone * or **
-            p = re.sub(r'\*{1,3}', '', p)
+
+            # Markdown bullet list  * item  or  - item  → bullet char
+            p = re.sub(r'^\s*[-*]\s+', '• ', p, flags=re.MULTILINE)
+
             # Strip horizontal rules
             p = re.sub(r'^[-_*]{3,}\s*$', '', p, flags=re.MULTILINE)
+
+            # Strip any remaining lone asterisks / backticks (formatting artifacts)
+            p = re.sub(r'(?<!\w)\*+(?!\w)', '', p)
+
+            # Curly / smart quotes → straight quotes for clean display
+            p = p.replace('\u201c', '"').replace('\u201d', '"')
+            p = p.replace('\u2018', "'").replace('\u2019', "'")
+
             out.append(p)
 
     return ''.join(out)
