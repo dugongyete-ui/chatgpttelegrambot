@@ -39,3 +39,6 @@ run = ["python", "bot/bot.py"]
 [userenv.shared]
 MONGODB_DATABASE = "chatbot"
 OPENAI_API_BASE = "https://chat-gateway-v-2--ngaylge.replit.app/v1"
+TELEGRAM_TOKEN = "7801055065:AAH_bwOz7l7pt883KnakLvM0bCiR3Oxeyjg"
+OPENAI_API_KEY = "sk-dzcxDK1WPoz84JPvfUCipkbA8Rjqv4NQHhDv8QRaicwP-r_x"
+MONGODB_URI = "mongodb+srv://galerizaki_db_user:wTkfzrqewY5qCxYG@cluster0.vmiek8b.mongodb.net/manus?retryWrites=true&w=majority"
