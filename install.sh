@@ -13,6 +13,8 @@ pip install \
     "pymongo==4.6.3" \
     "python-dotenv==1.2.2"
 
+# httpx dikontrol oleh python-telegram-bot (butuh ~=0.26.0), jangan pin sendiri
+
 echo ""
 echo "=============================="
 echo "  Setting up MongoDB..."
