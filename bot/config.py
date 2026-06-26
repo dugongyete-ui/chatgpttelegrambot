@@ -27,8 +27,6 @@ else:
 
 new_dialog_timeout = int(os.environ.get("NEW_DIALOG_TIMEOUT", config_yaml.get("new_dialog_timeout", 600)))
 enable_message_streaming = os.environ.get("ENABLE_MESSAGE_STREAMING", str(config_yaml.get("enable_message_streaming", True))).lower() not in ("false", "0", "no")
-return_n_generated_images = int(os.environ.get("RETURN_N_GENERATED_IMAGES", config_yaml.get("return_n_generated_images", 1)))
-image_size = os.environ.get("IMAGE_SIZE", config_yaml.get("image_size", "1024x1024"))
 n_chat_modes_per_page = int(os.environ.get("N_CHAT_MODES_PER_PAGE", config_yaml.get("n_chat_modes_per_page", 5)))
 
 # MongoDB — URI and database name from env or config.yml

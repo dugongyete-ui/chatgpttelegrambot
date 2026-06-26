@@ -49,7 +49,6 @@ HELP_MESSAGE = """Perintah yang tersedia:
 ⚪ /balance – Lihat penggunaan token
 ⚪ /help – Tampilkan bantuan
 
-🎨 Buat gambar dari teks di mode <b>👩‍🎨 Seniman</b> lewat /mode
 👥 Tambahkan bot ke <b>grup</b>: /help_group_chat
 🎤 Kamu bisa kirim <b>pesan suara</b> sebagai pengganti teks
 """
@@ -359,10 +358,6 @@ async def message_handle(update: Update, context: CallbackContext, message=None,
     user_id = update.message.from_user.id
     chat_mode = db.get_user_attribute(user_id, "current_chat_mode")
 
-    if chat_mode == "artist":
-        await generate_image_handle(update, context, message=message)
-        return
-
     current_model = db.get_user_attribute(user_id, "current_model")
 
     async def message_handle_fn():
@@ -535,35 +530,6 @@ async def voice_message_handle(update: Update, context: CallbackContext):
     db.set_user_attribute(user_id, "n_transcribed_seconds", voice.duration + db.get_user_attribute(user_id, "n_transcribed_seconds"))
 
     await message_handle(update, context, message=transcribed_text)
-
-
-async def generate_image_handle(update: Update, context: CallbackContext, message=None):
-    await register_user_if_not_exists(update, context, update.message.from_user)
-    if await is_previous_message_not_answered_yet(update, context): return
-
-    user_id = update.message.from_user.id
-    db.set_user_attribute(user_id, "last_interaction", datetime.now())
-
-    await update.message.chat.send_action(action="upload_photo")
-
-    message = message or update.message.text
-
-    try:
-        images = await openai_utils.generate_images(message, n_images=config.return_n_generated_images, size=config.image_size)
-    except openai.BadRequestError as e:
-        if str(e).startswith("Your request was rejected as a result of our safety system"):
-            text = "🥲 Permintaanmu <b>tidak sesuai</b> dengan kebijakan penggunaan.\nCoba dengan deskripsi yang berbeda."
-            await update.message.reply_text(text, parse_mode=ParseMode.HTML)
-            return
-        else:
-            raise
-
-    # usage accounting
-    db.set_user_attribute(user_id, "n_generated_images", len(images) + db.get_user_attribute(user_id, "n_generated_images"))
-
-    for image in images:
-        await update.message.chat.send_action(action="upload_photo")
-        await update.message.reply_photo(io.BytesIO(image))
 
 
 async def new_dialog_handle(update: Update, context: CallbackContext):

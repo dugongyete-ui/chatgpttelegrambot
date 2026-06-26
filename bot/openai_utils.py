@@ -415,10 +415,3 @@ async def transcribe_audio(audio_file) -> str:
     return r.text or ""
 
 
-async def generate_images(prompt, n_images=1, size="1024x1024"):
-    # gpt-image-1 returns base64-encoded images (no URLs), so decode to bytes
-    r = await openai_client.images.generate(
-        model="gpt-image-1", prompt=prompt, n=n_images, size=size
-    )
-    images = [base64.b64decode(item.b64_json) for item in r.data]
-    return images

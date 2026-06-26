@@ -274,10 +274,3 @@ info:
       Fast: 5
       Cheap: 5
 
-  gpt-image-1:
-    type: image
-    price_per_1_image: 0.042
-
-  whisper:
-    type: audio
-    price_per_1_min: 0.006

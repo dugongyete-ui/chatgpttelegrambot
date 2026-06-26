@@ -15,10 +15,6 @@ code_assistant:
     Format output dalam Markdown.
   parse_mode: html
 
-artist:
-  name: 👩‍🎨 Seniman
-  welcome_message: "👩‍🎨 Halo! Saya <b>Seniman</b>. Deskripsikan gambar yang ingin kamu buat (contoh: <i>kucing oranye selfie di Times Square, ilustrasi</i>)"
-
 english_tutor:
   name: 🇬🇧 Guru Bahasa Inggris
   welcome_message: 🇬🇧 Halo! Saya <b>Guru Bahasa Inggris</b>. Mau belajar apa hari ini?
