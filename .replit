@@ -33,3 +33,9 @@ args = "bash start.sh"
 [deployment]
 deploymentTarget = "autoscale"
 run = ["python", "bot/bot.py"]
+
+[userenv]
+
+[userenv.shared]
+MONGODB_DATABASE = "chatbot"
+OPENAI_API_BASE = "https://chat-gateway-v-2--ngaylge.replit.app/v1"
